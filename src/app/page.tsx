@@ -1,95 +1,49 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+import Form from 'react-bootstrap/Form';
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <>
+      <div className="container mt-4">
+        <div className="row justify-content-center">
+          <div className="col-md-9">
+            <h2>マイページ</h2>
+
+            {/* 名前入力フォーム */}
+            <div className="mb-4">
+              <label htmlFor="nameFormInput" className="form-label">名前</label>
+              <input type="text" className="form-control" id="nameFormInput" placeholder="Input Your Name" />
+            </div>
+
+            {/* 性別選択 */}
+            <label htmlFor="nameFormInput" className="form-label">性別</label>
+            <div className="form-check">
+              <input type="radio" className="form-check-input" name='flexRadioDefault' id='flexSexRadio1' />
+              <label htmlFor="flexSexRadio" className="form-check-label1">男性</label>
+            </div>
+
+            <div className="form-check">
+              <input type="radio" className="form-check-input" name='flexRadioDefault' id='flexSexRadio2' />
+              <label htmlFor="flexSexRadio" className="form-check-label2">女性</label>
+            </div>
+
+            <div className="form-check">
+              <input type="radio" className="form-check-input" name='flexRadioDefault' id='flexSexRadio3' />
+              <label htmlFor="flexSexRadio" className="form-check-label3">その他</label>
+            </div>
+            <br />
+
+            {/* 自己紹介入力フォーム */}
+            <div className="mb-3">
+              <label htmlFor="introFormInput" className="form-label">自己紹介</label>
+              <textarea className="form-control" id="introFormInput" rows={3}></textarea>
+            </div>
+
+            <div className="center-block">
+              <button type='submit' className="btn btn-primary">更新する</button>
+            </div>
+          </div>
         </div>
       </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+    </>
+  );
 }
