@@ -1,18 +1,9 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-
-type user = {
-  id: string,
-  name: string,
-  email: string,
-  password: string,
-  auth: string
-}
+import Link from 'next/link'
 
 export default function Home() {
-  const [message, setMessage] = useState('');
-  const [users, setUsers] = useState<user[]>([]);
   // ユーザー名
   const [name, setName] = useState('');
   // 自己紹介
@@ -37,7 +28,7 @@ export default function Home() {
     <>
       <div className="container mt-4">
         <div className="row justify-content-center">
-          <div className="col-md-9">            
+          <div className="col-md-9">      
             <h2>マイページ</h2>
 
             {/* 名前入力フォーム */}
@@ -73,6 +64,10 @@ export default function Home() {
             <div className="center-block">
               <button type='submit' onClick={handleUpdate} className="btn btn-primary">更新する</button>
             </div>
+
+            <Link href="/s3">
+              こちら
+            </Link>            
           </div>
         </div>
       </div>
