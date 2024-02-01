@@ -3,13 +3,27 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 export default function S3Page() {
+
+    // ブラウザに署名付きURLをダウンロード
+    const browserDownload = (data:any) => {
+        const blob = new Blob([data], {
+            type: data.type
+        });
+
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "downloaded-file.txt";
+        a.click();
+    }
     
     const handleDownloadFromS3 = () => {
         fetch('http://127.0.0.1:5000/s3')
         .then((res) => res.text())
-        .then((data:any) => {        
-            console.log(data);
-        });
+        .then((data:any) => {
+            // ブラウザに署名付きURLをダウンロードする            
+            browserDownload(data);
+        });  
     };
 
     return (
